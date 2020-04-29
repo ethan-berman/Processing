@@ -16,7 +16,7 @@ ArrayList<Blade> bs = new ArrayList<Blade>();
 void setup(){
   size(200,200);
   fft = new FFT(this, bands);
-  file = new SoundFile(this, "angels.mp3");
+  file = new SoundFile(this, "angels.wav");
   file.play();
   fft.input(file);
   //// create new blades of grass
