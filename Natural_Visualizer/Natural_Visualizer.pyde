@@ -111,21 +111,23 @@ class Earth:
         self.height = 300
         self.ave = ave
         self.color = (0, 153, 12)
-        self.grass = [0] * (self.width * self.height)
+        self.grass = [[0 for x in range(self.width)] for y in range(self.height)]
+        #[0] * (self.width * self.height)
         for i in range(len(self.grass)):
-            self.grass[i] = int(map(noise(i), 0, 1, 120, 180))
+            for j in range(len(self.grass[i])):
+                self.grass[i][j] = int(map(noise(i*self.width+j),0,1,120,180))
+        #for i in range(len(self.grass)):
+            #self.grass[i] = int(map(noise(i), 0, 1, 120, 180))
         print(self.width * self.height)
-            
     def grassNoise(self, pixel):
         counter = 0
         for i in range(self.width/pixel):
             for j in range(self.height/pixel):
-                g = self.grass[counter] * self.ave
+                g = self.grass[i][j] * self.ave
                 fill(self.color[0], g, self.color[2])
                 noStroke()
                 rect(self.x + i * pixel, self.y + j * pixel, pixel, pixel)
                 counter = counter + 1
-                #print(counter)
         fill(0)
     def draw(self, pixel, ave):
         self.ave = ave
