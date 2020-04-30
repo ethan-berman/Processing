@@ -91,14 +91,13 @@ class Sun:
         fill(0)
         ellipse(self.x - 15, self.y - 12, 5, 5)  # left eye
         ellipse(self.x + 15, self.y - 12, 5, 5)  # right eye
-        '''
+
         opener = randomGaussian() * 10
         fft.analyze()
         opener = 0
         for i in range(bands):
             opener = opener + fft.spectrum[i]
         opener = (opener / bands) * 200
-        '''
         #print opener
         #opener = song.getBand(20)
         ellipse(self.x, self.y + 5, 40, 20 + self.ave * 200)  # mouth
@@ -115,6 +114,7 @@ class Earth:
         #[0] * (self.width * self.height)
         for i in range(len(self.grass)):
             for j in range(len(self.grass[i])):
+
                 self.grass[i][j] = int(map(noise(i*self.width+j),0,1,120,180))
         #for i in range(len(self.grass)):
             #self.grass[i] = int(map(noise(i), 0, 1, 120, 180))
