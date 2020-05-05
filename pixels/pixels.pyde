@@ -31,6 +31,7 @@ def draw():
     ave[0] = ave[0]/(len(fft.spectrum) / 3)
     ave[1] = ave[1]/(len(fft.spectrum) / 3)
     ave[2] = ave[2]/(len(fft.spectrum) / 3)
+    print(ave)
     #to the right
     design(ave, x, y, pixel)
     if x == width and dir == 1:
